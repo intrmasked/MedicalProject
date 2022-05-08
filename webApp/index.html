@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body class="body">
+    <div class="container">
+      <div class="row">
+        <!-- text  -->
+        
+        <div
+          class="
+            col-12
+            d-flex
+            flex-column
+            align-items-center
+            justify-content-center
+            mt-5
+            welcome-text
+          "
+        >
+          <h1 class="welcomeText">Welcome to the Disease Detetector</h1>
+        </div>
+        <!-- end text -->
+        <!--start cadentials -->
+        <div
+          class="
+          col-12
+        d-flex
+        flex-column
+        align-items-center
+        justify-content-center
+        mt-5
+          "
+          
+        >
+        
+      
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button id="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+
+          <a href="signup.html"> Create an account</a>
+        </div>
+      
+       
+      
+
+    </div>
+    
+  </body>
+
+
+
+
+
+  
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
+  <script>
+    $(document).ready(function() {
+      $("#submit").click(function() {
+        var uname = $("input[name=uname]").val();
+        var psw = $("input[name=psw]").val();
+        if (uname == "admin" && psw == "admin") {
+          window.location.href = "symptomDetect.html";
+        }
+       else if(uname == localStorage.getItem("uname") && psw == localStorage.getItem("password")){
+          window.location.href = "symptomDetect.html";
+        }
+        else {return}
+       
+      });
+    });
+  </script>
+
+  </html>

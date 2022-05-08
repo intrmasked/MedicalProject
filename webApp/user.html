@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Information</title>
+    
+    
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+  <body>
+    <ul>
+        <li><a href="user.html">User Info</a></li>
+        <li><a href="symptomDetect.html">Disease Detetector</a></li>
+        <li><a href="index.html " style="position: absolute; top: 0; right: 0;" href="#">Signout</a></li>
+        
+      </ul>
+
+    <div id="page-content-wrapper" class="account-content-wrapper">
+        
+        </div>
+        <div class="container dashboard-container account-container">
+          <div class="account-div">
+            <div class="text-div">
+              <h1 id='hey'>Hey Username!</h1>
+             
+              <div>
+               
+                <div  style="
+              background-color: #000;
+              border: #00FFFF;
+              width: 100%;">
+
+                <div class="d-flex flex-column align-items-center">
+                 
+                 
+                
+               
+              </div>
+              </div>
+              <h2 style="text-align: left;" id='username'>Username:</h2>
+              
+              
+              <h2 id = 'Disease' style="text-align: left;">User's Diseases: </h2>
+              <h2 id = 'condition' style="text-align: left;" >User's condition:</h2>
+              
+
+              <button id="generator"> Send History to Doctor</button>
+
+            </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.5/jspdf.debug.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ 
+  <script>
+    var username = localStorage.getItem('uname');
+    var condition = localStorage.getItem('condition');
+    var disease = localStorage.getItem('disease');
+    document.getElementById('username').innerHTML = "Username: " + username;
+    document.getElementById('Disease').innerHTML = "User's Diseases: " + "Cancer";
+    document.getElementById('condition').innerHTML = "User's condition: " + "Fatal";
+    document.getElementById('hey').innerHTML = "Hey " + username + "!";
+    
+    $("#generator").click(function(){
+      generatePDF();
+    });
+    
+    
+    function generatePDF() {
+      console.log("called")
+      var doc = new jsPDF();
+      doc.text("The Patient's generated report", 10, 10);
+      doc.text("Patient's Name: " + username, 10, 20);
+      doc.text("Patient's Diseases: " + "Cancer", 10, 30);
+      doc.text("Patient's condition: " + "Fatal", 10, 40);
+      doc.save('test.pdf');
+
+}
+  
+
+    
+  </script>
+
+
+  </html>
